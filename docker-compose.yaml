@@ -1,0 +1,55 @@
+version: '3.8'
+services:
+  client-prod:
+    build:
+      context: ./client
+    ports:
+      - "80:80"
+    networks: 
+      - client
+    depends_on:
+      - server-prod
+    volumes_from:
+      - server-prod:ro
+
+  server-prod:
+    build:
+      context: ./server
+    environment:
+      NODE_ENV: production
+    networks: 
+      - server
+      - client
+    depends_on:
+      - db-prod
+      - mongo-prod
+    volumes:
+      - /var/www/html/images:/var/www/html/images
+
+  db-prod:
+    image: postgres:13.2-alpine
+    networks: 
+      - server
+    environment:
+      - POSTGRES_PASSWORD=password
+      - POSTGRES_USER=postgres
+      - POSTGRES_DB=todo-prod
+
+  mongo-prod:
+    image: mongo:3.6
+    environment:
+      - MONGO_DATA_DIR=/data/db
+      - MONGO_LOG_DIR=/dev/null
+    networks: 
+      - server
+    volumes:
+      - ./data/db:/data/db
+    command: mongod --smallfiles --logpath=/dev/null
+
+volumes:
+  server-prod:
+  nginx-server-prod:
+
+networks: 
+  client: 
+  server:
