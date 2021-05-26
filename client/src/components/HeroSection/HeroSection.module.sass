@@ -1,5 +1,11 @@
-.row
+.section
   margin-top: 50px
+  padding: 32px 16px
+  img
+    @media screen and (max-width: 1140px)
+      width: 350px
+    @media screen and (max-width: 992px)
+      display: none
 .content_wrapper
   min-height: 100%
   display: flex
@@ -8,16 +14,15 @@
   align-items: start
   h1
     font-size: 40px
-    font-family: Poppins, Helvetica, Arial, sans-serif
     font-weight: 600
-    margin-bottom: 0.5rem
+    margin-bottom: 8px
     line-height: 1.5
   p
-    margin-bottom: 1rem
+    margin-bottom: 16px
     line-height: 1.7
     color: #77838f
   span
-    font-size: 11px
+    font-size: .6875rem
     font-weight: 400
     padding: 11px 16px
     margin-bottom: 8px
@@ -25,9 +30,23 @@
     background-color: rgba(55,125,255,.1)
     border-radius: 25px
     line-height: 1
+    cursor: default
   .button
     border-radius: 25px
     padding: 10px 20px
+    position: relative
+    bottom: 0
+    transition: bottom .3s
+    &:hover
+      box-shadow: 0px 5px 10px 2px rgba(0, 127, 224, 0.2)
+      bottom: 4px
     .btn_icon
       display: inline
       margin-right: 5px
+.modal
+  max-width: 70vw!important
+.modal_body
+  display: flex
+  justify-content: center
+  align-items: center
+  background: #000000

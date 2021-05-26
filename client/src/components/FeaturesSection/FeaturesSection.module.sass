@@ -1,0 +1,81 @@
+.section
+  font-family: Poppins, Helvetica, Arial, sans-serif
+  padding: 128px 15px
+
+.header_wrapper
+  display: flex
+  flex-direction: column
+  justify-content: start
+  align-items: center
+  text-align: center
+  margin-bottom: 64px
+  img
+    max-height: 72px
+    margin-bottom: 16px
+  h2
+    font-size: 2rem
+    margin-bottom: .5rem
+    line-height: 1.5
+
+.image_wrapper
+  max-width: 100%
+  min-height: 100%
+  display: flex
+  justify-content: center
+  align-items: center
+  padding-right: 48px
+  box-sizing: border-box
+  img
+    min-width: 450px
+    box-sizing: border-box
+.ul_wrapper
+  li
+    padding: 16px 0 16px 40px
+    position: relative
+    &::before
+      position: absolute
+      top: 0
+      bottom: 0
+      right: 0
+      left: -4px
+      width: 32px
+      height: 1px
+      border-top: 1px solid #e7eaf3
+      margin: auto auto auto 0
+      content: ""
+    &::after
+      position: absolute
+      top: 0
+      bottom: 0
+      right: 0
+      left: -5px
+      width: 1px
+      height: 100%
+      border-right: 1px solid #e7eaf3
+      margin: auto auto auto 0
+      content: ""
+    &:first-child::after
+      height: 50%
+      top: auto
+    &:last-child::after
+      height: 50%
+      bottom: auto
+      
+
+  div
+    display: flex
+    justify-content: start
+    align-items: center
+    padding: 32px
+    border: 1px solid #e7eaf3
+    border-radius: 5px
+  span
+    display: block
+    min-width: 48px
+    font-size: 3.5rem
+    line-height: 1.2
+    color: #377dff
+    margin-right: 16px
+  p
+    color: #77838f
+    line-height: 1.7

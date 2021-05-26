@@ -3,7 +3,7 @@ import styles from './Header.module.sass'
 import { connect } from 'react-redux'
 import { Link, withRouter } from 'react-router-dom'
 import CONSTANTS from '../../constants'
-import { clearUserStore, headerRequest } from '../../actions/actionCreator'
+import { clearUserStore } from '../../actions/actionCreator'
 
 class Header extends React.Component {
   logOut = () => {
@@ -87,13 +87,6 @@ class Header extends React.Component {
     }
     return (
       <div className={styles.headerContainer}>
-        <div className={styles.fixedHeader}>
-          <span className={styles.info}>
-            Squadhelp recognized as one of the Most Innovative Companies by Inc
-            Magazine.
-          </span>
-          <a href='http://www.google.com'>Read Announcement</a>
-        </div>
         <div className={styles.loginSignnUpHeaders}>
           <div className={styles.numberContainer}>
             <img src={`${CONSTANTS.STATIC_IMAGES_PATH}phone.png`} alt='phone' />

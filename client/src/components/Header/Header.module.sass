@@ -67,6 +67,7 @@
             align-items: center
             justify-content: flex-start
             margin-right: 30px
+            position: relative
             @media(max-width: 700px)
               width: 100%
               padding: 0 15px
@@ -80,7 +81,7 @@
                 position: absolute
                 border: 1px solid #eee
                 z-index: 1000
-                top: 130px
+                top: 46px
                 background-color: white
                 @media(max-width: 700px)
                   top: auto
@@ -123,12 +124,10 @@
               padding: 15px 0
 
   .loginSignnUpHeaders
-    margin-top: 30px
     display: flex
     flex-direction: row
     align-items: center
     justify-content: space-around
-    border: 1px solid #ebebeb
     margin-bottom: 13px
 
     .userButtonsContainer
@@ -136,7 +135,6 @@
       align-items: center
       justify-content: center
       display: flex
-      border-left: 1px solid #ebebeb
       height: 40px
       @media(max-width: 600px)
         margin-left: 60px
@@ -147,20 +145,18 @@
 
       .emailIcon
         padding: 0 15px
-        border-right: 1px solid #ebebeb
 
       .userInfo
         display: flex
         justify-content: center
         align-items: center
         padding: 0 15px
-        border-right: 1px solid #ebebeb
 
         &:hover
           ul
             display: block
             position: absolute
-            top: 45px
+            top: 10px
 
         ul
           border: 1px solid #eee
@@ -210,8 +206,6 @@
       justify-content: center
       align-items: center
       padding: 0 15px
-      border-right: 1px solid #ebebeb
-      border-left: 1px solid #ebebeb
       margin-left: 120px
       height: 40px
       @media(max-width: 600px)
@@ -226,29 +220,3 @@
         margin-left: 10px
         @media(max-width: 360px)
           font-size: 12px
-
-  .fixedHeader
-    z-index: 500
-    display: flex
-    justify-content: center
-    align-items: center
-    width: 100%
-    position: fixed
-    background-color: rgb(69, 90, 137)
-    border-bottom: 3px solid rgb(255, 255, 255)
-    height: 30px
-
-    .info
-      font-size: 8pt
-      letter-spacing: 0.3px
-      color: white
-      margin-right: 4px
-      @media(max-width: 600px)
-        display: none
-
-    a
-      font-size: 8pt
-      letter-spacing: 0.3px
-      color: lightyellow
-      text-decoration: underline
-
