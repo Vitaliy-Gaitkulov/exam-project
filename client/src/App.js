@@ -1,36 +1,37 @@
-import React, { useLayoutEffect } from 'react'
-import { Router, Route, Switch } from 'react-router-dom'
-import 'react-toastify/dist/ReactToastify.css'
-import { ToastContainer } from 'react-toastify'
-import { useDispatch } from 'react-redux'
-import './App.css'
-import LoginPage from './pages/LoginPage/LoginPage'
-import RegistrationPage from './pages/RegistrationPage/RegistrationPage'
-import Payment from './pages/Payment/Payment'
-import StartContestPage from './pages/StartContestPage/StartContestPage'
-import Dashboard from './pages/Dashboard/Dashboard'
-import NotFound from './components/NotFound/NotFound'
-import Home from './pages/Home/Home'
-import ContestPage from './pages/ContestPage/ContestPage'
-import UserProfile from './pages/UserProfile/UserProfile'
-import ContestCreationPage from './pages/ContestCreation/ContestCreationPage'
-import CONSTANTS from './constants'
-import browserHistory from './browserHistory'
-import ChatContainer from './components/Chat/ChatComponents/ChatContainer/ChatContainer'
-import { requestAuthRefresh } from './actions/actionCreator'
-import constants from './constants'
-import PrivateRoute from './components/PrivateRoute/PrivateRoute'
-import HowItWorksPage from './pages/HowItWorksPage/HowItWorksPage'
+import React, { useLayoutEffect } from 'react';
+import { Router, Route, Switch } from 'react-router-dom';
+import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer } from 'react-toastify';
+import { useDispatch } from 'react-redux';
+import './App.css';
+import LoginPage from './pages/LoginPage/LoginPage';
+import RegistrationPage from './pages/RegistrationPage/RegistrationPage';
+import Payment from './pages/Payment/Payment';
+import StartContestPage from './pages/StartContestPage/StartContestPage';
+import Dashboard from './pages/Dashboard/Dashboard';
+import NotFound from './components/NotFound/NotFound';
+import Home from './pages/Home/Home';
+import ContestPage from './pages/ContestPage/ContestPage';
+import UserProfile from './pages/UserProfile/UserProfile';
+import ContestCreationPage from './pages/ContestCreation/ContestCreationPage';
+import CONSTANTS from './constants';
+import browserHistory from './browserHistory';
+import ChatContainer from './components/Chat/ChatComponents/ChatContainer/ChatContainer';
+import { requestAuthRefresh } from './actions/actionCreator';
+import constants from './constants';
+import PrivateRoute from './components/PrivateRoute/PrivateRoute';
+import HowItWorksPage from './pages/HowItWorksPage/HowItWorksPage';
+import EventsPage from './pages/EventsPage/EventsPage';
 
 function App () {
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
 
   useLayoutEffect(() => {
-    const refreshToken = localStorage.getItem(constants.REFRESH_TOKEN)
+    const refreshToken = localStorage.getItem(constants.REFRESH_TOKEN);
     if (refreshToken) {
-      dispatch(requestAuthRefresh(refreshToken))
+      dispatch(requestAuthRefresh(refreshToken));
     }
-  }, [])
+  }, []);
 
   return (
     <Router history={browserHistory}>
@@ -61,6 +62,13 @@ function App () {
           exact
           path='/startContest'
           component={StartContestPage}
+        />
+
+        <PrivateRoute
+          roles={['customer']}
+          exact
+          path='/events'
+          component={EventsPage}
         />
 
         <PrivateRoute
@@ -101,7 +109,7 @@ function App () {
           component={Dashboard}
         />
         <PrivateRoute
-          roles={['customer','creator']}
+          roles={['customer', 'creator']}
           exact
           path='/contest/:id'
           component={ContestPage}
@@ -116,7 +124,7 @@ function App () {
       </Switch>
       <ChatContainer />
     </Router>
-  )
+  );
 }
 
-export default App
+export default App;
