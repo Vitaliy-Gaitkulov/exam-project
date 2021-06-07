@@ -6,10 +6,6 @@ import styles from './EventDashboard.module.sass';
 import cx from 'classnames';
 import CreateTimerModal from '../CreateTimerModal/CreateTimerModal';
 
-const DATE_EVENT_SCHEMA = Yup.object({
-  name: Yup.string().required(),
-  //date: Yup.date()
-});
 
 const EventDashboard = () => {
   const initialState = () =>

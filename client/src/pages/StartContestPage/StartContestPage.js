@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { selectBundle } from '../../actions/actionCreator';
 import { useDispatch, useSelector } from 'react-redux';
 import BundleBox from '../../components/BundleBox/BundleBox';
@@ -7,14 +7,18 @@ import styles from './StartContestPage.module.sass';
 import Footer from '../../components/Footer/Footer';
 import ProgressBar from '../../components/ProgressBar/ProgressBar';
 import Header from '../../components/Header/Header';
+import DomainButtonGroup from '../../components/DomainButtonGroup/DomainButtonGroup';
 
 const StartContestPage = props => {
+  const [btnGroup, setBtnGroup] = useState("yes")
   const { auth } = useSelector(state => state);
   const dispatch = useDispatch();
 
   if (auth.user.role !== CONSTANTS.CUSTOMER) {
     props.history.replace('/');
   }
+
+  const setButtonGroup = value => setBtnGroup(value)
 
   const setBundle = bundleStr => {
     const array = bundleStr.toLowerCase().split('+');
@@ -113,7 +117,7 @@ const StartContestPage = props => {
         </div>
       </div>
       <div>
-        
+        <DomainButtonGroup btnGroupActive={btnGroup} setButtonGroup={setButtonGroup}/>
       </div>
       <Footer />
     </div>
