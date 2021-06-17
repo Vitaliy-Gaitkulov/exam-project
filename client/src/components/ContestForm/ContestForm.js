@@ -243,13 +243,6 @@ class ContestForm extends React.Component {
 const submit = values => {
   submitFunc(values);
 };
-// const {} = useSelector((state, ownProps)=>{  return {
-//   contestStore: state.contestStore,
-//   dataForContest: state.dataForContest,
-//   initialValues: ownProps.defaultData,
-// };})
-
-// const dispatch = useDispatch()
 const mapStateToProps = (state, ownProps) => {
   return {
     contestStore: state.contestStore,

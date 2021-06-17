@@ -22,6 +22,7 @@ import constants from './constants';
 import PrivateRoute from './components/PrivateRoute/PrivateRoute';
 import HowItWorksPage from './pages/HowItWorksPage/HowItWorksPage';
 import EventsPage from './pages/EventsPage/EventsPage';
+import PasswordResetPage from './pages/PasswordResetPage/PasswordResetPage';
 
 function App () {
   const dispatch = useDispatch();
@@ -51,6 +52,7 @@ function App () {
         <Route exact path='/login' component={LoginPage} />
         <Route exact path='/registration' component={RegistrationPage} />
         <Route exact path='/how-it-works' component={HowItWorksPage} />
+        <Route exact path='/password_reset' component={PasswordResetPage} />
         <PrivateRoute
           roles={['customer']}
           exact

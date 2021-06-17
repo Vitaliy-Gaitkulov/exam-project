@@ -23,6 +23,11 @@ const LoginPage = props => {
         <div className={styles.loginFormContainer}>
           <LoginForm changeRoute={changeRoute} />
         </div>
+        <div className={styles.password_reset}>
+          <Link to='/password_reset' style={{ textDecoration: 'none' }}>
+            <span>Forgot password</span>
+          </Link>
+        </div>
       </div>
     </div>
   );

@@ -417,3 +417,10 @@ export const changeModalShow = data => {
     data: data,
   };
 };
+
+export const refreshPassword = data => {
+  return {
+    type: ACTION.REFRESH_PASSWORD_ACTION,
+    data: data,
+  };
+};

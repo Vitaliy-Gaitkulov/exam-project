@@ -3,6 +3,21 @@ import ACTION from '../actions/actionTypes'
 import history from '../browserHistory'
 import * as Api from '../api/http'
 
+export function * refreshPasswordSaga (action) {
+  yield put({ type: ACTION.REFRESH_PASSWORD_REQUEST })
+  try {
+    const {
+      data: {
+        data: { user }
+      }
+    } = yield Api.auth.login(action.data)
+    history.replace('/')
+    yield put({ type: ACTION.REFRESH_PASSWORD_SUCCESS, user })
+  } catch (err) {
+    yield put({ type: ACTION.REFRESH_PASSWORD_ERROR, error: err.response })
+  }
+}
+
 export function * loginSaga (action) {
   yield put({ type: ACTION.AUTH_ACTION_REQUEST })
   try {

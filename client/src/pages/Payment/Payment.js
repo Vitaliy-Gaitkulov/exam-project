@@ -14,7 +14,7 @@ const Payment = props => {
     contestStore: state.contestStore,
   }));
   const dispatch = useDispatch();
-  const clearPaymentStore = () => dispatch(clearPaymentStore());
+  const clearPayment = () => dispatch(clearPaymentStore());
 
   const pay = values => {
     const { contests } = contestStore;
@@ -62,7 +62,7 @@ const Payment = props => {
             <Error
               data={error.data}
               status={error.status}
-              clearError={clearPaymentStore}
+              clearError={clearPayment}
             />
           )}
           <PayForm sendRequest={pay} back={goBack} isPayForOrder={true} />
