@@ -6,15 +6,28 @@ import * as Api from '../api/http'
 export function * refreshPasswordSaga (action) {
   yield put({ type: ACTION.REFRESH_PASSWORD_REQUEST })
   try {
+    console.log("AAAAAAAAAA",action);
     const {
-      data: {
-        data: { user }
-      }
-    } = yield Api.auth.login(action.data)
-    history.replace('/')
-    yield put({ type: ACTION.REFRESH_PASSWORD_SUCCESS, user })
+      data
+    } = yield Api.auth.refreshPassword(action.data)
+    console.log("DATAAA");
+    yield put({ type: ACTION.REFRESH_PASSWORD_SUCCESS, data })
   } catch (err) {
     yield put({ type: ACTION.REFRESH_PASSWORD_ERROR, error: err.response })
+  }
+}
+
+export function * updatePasswordSaga (action) {
+  yield put({ type: ACTION.UPDATE_PASSWORD_REQUEST })
+  try {
+    console.log("AAAAAAAAAA",action);
+    const {
+      data
+    } = yield Api.auth.updatePassword(action.data)
+    history.replace('/')
+    yield put({ type: ACTION.UPDATE_PASSWORD_SUCCESS, data })
+  } catch (err) {
+    yield put({ type: ACTION.UPDATE_PASSWORD_ERROR, error: err.response })
   }
 }
 

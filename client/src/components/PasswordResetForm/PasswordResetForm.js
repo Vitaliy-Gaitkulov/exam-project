@@ -1,13 +1,19 @@
 import React from 'react';
 import {Formik, Form, Field } from 'formik';
+import { useDispatch } from 'react-redux';
+import {refreshPassword} from '../../actions/actionCreator';
 import styles from './PasswordResetForm.module.sass'
 
 const PasswordResetForm = () => {
+
+  const dispatch = useDispatch()
+  
+
   return (
     <div>
       <Formik
        initialValues={{ email: '', password: '' }}
-       onSubmit={(bag) =>{console.log(bag);}}
+       onSubmit={data =>dispatch(refreshPassword(data))}
        >
         <Form>
           <div className={styles.wrapper_field}>

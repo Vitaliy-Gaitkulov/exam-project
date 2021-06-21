@@ -53,6 +53,7 @@ function App () {
         <Route exact path='/registration' component={RegistrationPage} />
         <Route exact path='/how-it-works' component={HowItWorksPage} />
         <Route exact path='/password_reset' component={PasswordResetPage} />
+        <Route exact path='/password_reset/:hash' component={PasswordResetPage} />
         <PrivateRoute
           roles={['customer']}
           exact

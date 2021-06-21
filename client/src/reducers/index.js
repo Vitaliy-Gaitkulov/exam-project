@@ -10,10 +10,12 @@ import getContestByIdReducer from './getContestByIdReducer'
 import updateContestReducer from './updateContestReducer'
 import chatReducer from './chatReducer'
 import userProfileReducer from './userProfileReducer'
+import refreshPasswordReducer from './refreshPasswordReducer'
 
 const appReducer = combineReducers({
   form: formReducer,
   auth: authReducer, // auth
+  refreshPassword: refreshPasswordReducer,
   dataForContest: dataForContestReducer,
   payment: payReducer,
   contestByIdStore: getContestByIdReducer,

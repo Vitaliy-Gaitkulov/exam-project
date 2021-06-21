@@ -424,3 +424,10 @@ export const refreshPassword = data => {
     data: data,
   };
 };
+
+export const updatePasswordAction = data => {
+  return {
+    type: ACTION.UPDATE_PASSWORD_ACTION,
+    data: data,
+  };
+};

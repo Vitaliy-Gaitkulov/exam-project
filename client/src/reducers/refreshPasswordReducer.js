@@ -3,7 +3,7 @@ import ACTION from '../actions/actionTypes';
 const initialState = {
   isFetching: false,
   error: null,
-  user: null,
+  data: null,
 };
 
 export default function (state = initialState, action) {
@@ -20,10 +20,32 @@ export default function (state = initialState, action) {
         ...state,
         isFetching: false,
         error: null,
-        user: action.user,
+        data: action.data,
       };
     }
     case ACTION.REFRESH_PASSWORD_ERROR: {
+      return {
+        ...state,
+        isFetching: false,
+        error: action.error,
+      };
+    }
+    case ACTION.UPDATE_PASSWORD_REQUEST: {
+      return {
+        ...state,
+        isFetching: true,
+        error: null,
+      };
+    }
+    case ACTION.UPDATE_PASSWORD_SUCCESS: {
+      return {
+        ...state,
+        isFetching: false,
+        error: null,
+        data: action.data,
+      };
+    }
+    case ACTION.UPDATE_PASSWORD_ERROR: {
       return {
         ...state,
         isFetching: false,
