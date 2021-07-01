@@ -1,25 +1,43 @@
 import React from 'react';
-import {Formik, Form, Field } from 'formik';
+import { Formik, Form, Field } from 'formik';
 import { useDispatch } from 'react-redux';
-import {refreshPassword} from '../../actions/actionCreator';
-import styles from './PasswordResetForm.module.sass'
+import { refreshPassword } from '../../actions/actionCreator';
+import Schems from '../../validators/validationSchems';
+import styles from './PasswordResetForm.module.sass';
+import InputField from '../InputField/InputField';
 
 const PasswordResetForm = () => {
+  const dispatch = useDispatch();
 
-  const dispatch = useDispatch()
-  
+  const Submit = data => {
+    dispatch(refreshPassword(data))
+    alert("Подтвердите изменения пароля перейдя по ссылке в письме отправленном на указаную почту.")
+  }
 
   return (
-    <div>
+    <div className={ styles.loginForm }>
       <Formik
-       initialValues={{ email: '', password: '' }}
-       onSubmit={data =>dispatch(refreshPassword(data))}
-       >
+        initialValues={{ email: '', password: '' }}
+        onSubmit={Submit}
+        validationSchema={Schems.LoginSchem}
+      >
         <Form>
-          <div className={styles.wrapper_field}>
-          <Field type='email' name='email'/>
-          <Field type='password' name='password'/>
-          <Field type='submit' name='submit'/></div>
+          <h1>
+          FORGOT PASSWORD
+          </h1>
+          <Field name={'email'}>
+            {fieldProps => <InputField placeholder='Email adress' {...fieldProps} />}
+          </Field>
+
+          <Field name={'password'}>
+            {fieldProps => <InputField type='password' placeholder='New password' {...fieldProps} />}
+          </Field>
+
+          <Field
+            type='submit'
+            name='submit'
+            className={styles.submitContainer}
+          />
         </Form>
       </Formik>
     </div>

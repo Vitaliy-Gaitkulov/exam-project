@@ -34,9 +34,9 @@ import {
 } from './chatSagas';
 
 function * rootSaga () {
-  yield takeLatest(ACTION.AUTH_REFRESH, refreshSaga);
   yield takeLatest(ACTION.REFRESH_PASSWORD_ACTION, refreshPasswordSaga);
   yield takeLatest(ACTION.UPDATE_PASSWORD_ACTION, updatePasswordSaga);
+  yield takeLatest(ACTION.AUTH_REFRESH, refreshSaga);
   yield takeLatest(ACTION.CLEAR_USER_STORE, logoutSaga);
   yield takeLatest(ACTION.AUTH_ACTION_LOGIN, loginSaga);
   yield takeLatest(ACTION.AUTH_ACTION_REGISTER, registerSaga);
