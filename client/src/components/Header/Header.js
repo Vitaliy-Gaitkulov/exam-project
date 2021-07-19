@@ -4,13 +4,14 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Link, withRouter } from 'react-router-dom';
 import CONSTANTS from '../../constants';
 import { clearUserStore } from '../../actions/actionCreator';
+import { Container } from 'react-bootstrap';
 
 const Header = props => {
   const { auth, isFetching } = useSelector(state => state);
   const dispatch = useDispatch();
   const logOut = () => {
-    dispatch(clearUserStore());
     props.history.replace('/login');
+    dispatch(clearUserStore());
   };
   const renderLoginButtons = () => {
     if (auth.user) {
@@ -95,6 +96,7 @@ const Header = props => {
     <>
       {!isFetching && (
         <div className={styles.headerContainer}>
+          <Container>
           <div className={styles.loginSignnUpHeaders}>
             <div className={styles.numberContainer}>
               <img
@@ -256,13 +258,19 @@ const Header = props => {
                   </li>
                 </ul>
               </div>
-              {auth.user && auth.user.role !== CONSTANTS.CREATOR && (
+              {auth.user && auth.user.role === CONSTANTS.CUSTOMER && (
                 <div className={styles.startContestBtn}>
                   <Link to='/startContest'>START CONTEST</Link>
                 </div>
               )}
+              {auth.user && auth.user.role === CONSTANTS.MODERATOR && (
+                <div className={styles.startContestBtn}>
+                  <Link to='/allOffers'>ALL OFFERS</Link>
+                </div>
+              )}
             </div>
           </div>
+          </Container>
         </div>
       )}
     </>

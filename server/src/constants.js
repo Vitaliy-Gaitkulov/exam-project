@@ -29,7 +29,8 @@ module.exports = {
 
   ROLES: {
     CUSTOMER: 'customer',
-    CREATOR: 'creator'
+    CREATOR: 'creator',
+    MODERATOR: 'moderator'
   },
 
   CREATOR_ENTRIES: 'creator_entries',
@@ -40,6 +41,7 @@ module.exports = {
     TAGLINE: 'tagline'
   },
   OFFER_STATUSES: {
+    MODERATION: 'moderation',
     PENDING: 'pending',
     REJECTED: 'rejected',
     WON: 'won'
@@ -49,6 +51,8 @@ module.exports = {
     FINISHED: 'finished',
     PENDING: 'pending'
   },
+
+  LOGO_CONTEST: 'logo',
 
   FILES_PATH: 'public/',
   CONTESTS_DEFAULT_DIR: 'public/contestFiles/',

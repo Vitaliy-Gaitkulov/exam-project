@@ -1,4 +1,4 @@
-import { put, select } from 'redux-saga/effects';
+import { put } from 'redux-saga/effects';
 import ACTION from '../actions/actionTypes';
 import * as restController from '../api/http/restController';
 
@@ -33,7 +33,7 @@ export function * updateContestSaga (action) {
 }
 
 export function * dataForContestSaga (action) {
-  // yield put({type: ACTION.GET_DATA_FOR_CONTEST_ACTION_REQUEST});
+   yield put({type: ACTION.GET_DATA_FOR_CONTEST_ACTION_REQUEST});
   try {
     const { data } = yield restController.dataForContest(action.data);
     yield put({ type: ACTION.GET_DATA_FOR_CONTEST_ACTION_SUCCESS, data });

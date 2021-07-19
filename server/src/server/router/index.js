@@ -4,12 +4,13 @@ const authRouter = require('./auth');
 const chatRouter = require('./chat');
 const userRouter = require('./user');
 const contestRouter = require('./contest');
-const refreshPassword = require('./refreshPassword');
+const refreshPasswordRouter = require('./refreshPassword');
+const moderationRouter = require('./moderation');
 
 router.use('/auth', authRouter);
-router.use(refreshPassword);
+router.use(refreshPasswordRouter);
 router.use(checkAccessToken);
 
-router.use('/', chatRouter, contestRouter, userRouter);
+router.use('/', chatRouter, contestRouter, userRouter, moderationRouter);
 
 module.exports = router;

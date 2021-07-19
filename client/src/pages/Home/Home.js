@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect } from 'react';
 import Header from '../../components/Header/Header';
 import { Link } from 'react-router-dom';
 import CONSTANTS from '../../constants';
@@ -13,7 +13,7 @@ const Home = props => {
   const [index, setIndex] = useState(0);
   const [styleName, setStyle] = useState(styles.headline__static);
 
-  const { isFetching } = useSelector(state => state.auth);
+  const { isFetching, user } = useSelector(state => state.auth);
 
   useEffect(() => {
     let timeout = setInterval(() => {
@@ -49,11 +49,19 @@ const Home = props => {
                 explore our hand-picked collection of premium names available
                 for immediate purchase
               </p>
-              <div className={styles.button}>
-                <Link className={styles.button__link} to='/dashboard'>
-                  DASHBOARD
-                </Link>
-              </div>
+              {user && user.role === CONSTANTS.MODERATOR ? (
+                <div variant='primary' className={styles.button}>
+                  <Link className={styles.button__link} to='/allOffers'>
+                    ALL OFFERS
+                  </Link>
+                </div>
+              ) : (
+                <div className={styles.button}>
+                  <Link className={styles.button__link} to='/dashboard'>
+                    DASHBOARD
+                  </Link>
+                </div>
+              )}
             </div>
             <div className={styles.greyContainer}>
               <SlideBar
@@ -107,7 +115,9 @@ const Home = props => {
                 </div>
               </div>
               <div className={styles.button}>
-                <Link className={styles.button__link} to='/how-it-works'>See How it Works</Link>
+                <Link className={styles.button__link} to='/how-it-works'>
+                  See How it Works
+                </Link>
               </div>
             </div>
             <div className={styles.greyContainer}>

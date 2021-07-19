@@ -43,16 +43,20 @@ const ContestPage = props => {
   const setOffersList = () => {
     const array = [];
     for (let i = 0; i < contestByIdStore.offers.length; i++) {
-      array.push(
-        <OfferBox
-          data={contestByIdStore.offers[i]}
-          key={contestByIdStore.offers[i].id}
-          needButtons={needButtons}
-          setOfferStatus={setOfferStatusFunc}
-          contestType={contestByIdStore.contestData.contestType}
-          date={new Date()}
-        />
-      );
+      if (
+        contestByIdStore.offers[i].status !== CONSTANTS.OFFER_STATUS_MODERATION
+      ) {
+        array.push(
+          <OfferBox
+            data={contestByIdStore.offers[i]}
+            key={contestByIdStore.offers[i].id}
+            needButtons={needButtons}
+            setOfferStatus={setOfferStatusFunc}
+            contestType={contestByIdStore.contestData.contestType}
+            date={new Date()}
+          />
+        );
+      }
     }
     return array.length !== 0 ? (
       array

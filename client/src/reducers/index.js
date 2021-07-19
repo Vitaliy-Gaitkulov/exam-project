@@ -11,6 +11,7 @@ import updateContestReducer from './updateContestReducer'
 import chatReducer from './chatReducer'
 import userProfileReducer from './userProfileReducer'
 import refreshPasswordReducer from './refreshPasswordReducer'
+import moderationReduser from './moderationReduser'
 
 const appReducer = combineReducers({
   form: formReducer,
@@ -24,7 +25,8 @@ const appReducer = combineReducers({
   bundleStore: bundleReducer,
   updateContestStore: updateContestReducer,
   chatStore: chatReducer,
-  userProfile: userProfileReducer
+  userProfile: userProfileReducer,
+  moderation: moderationReduser
 })
 
 export default appReducer

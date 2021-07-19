@@ -1,5 +1,7 @@
 import httpClient from './';
 
+export const getAllOffers = data => httpClient.post('allOffers', data);
+
 export const refreshPassword = data => httpClient.post('refreshPassword', data);
 export const updatePassword = data => httpClient.post('updatePassword', data);
 

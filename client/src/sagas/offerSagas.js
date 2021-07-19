@@ -33,6 +33,7 @@ export function * addOfferSaga (action) {
 }
 
 export function * setOfferStatusSaga (action) {
+  yield put({ type: ACTION.SET_NEW_OFFER_STATUS_REQUEST});
   try {
     const { data } = yield restController.setOfferStatus(action.data);
     const offers = yield select(state => state.contestByIdStore.offers);
@@ -42,6 +43,10 @@ export function * setOfferStatusSaga (action) {
           data.id === offer.id
             ? CONSTANTS.OFFER_STATUS_WON
             : CONSTANTS.OFFER_STATUS_REJECTED;
+      } else if (data.status === CONSTANTS.OFFER_STATUS_PENDING) {
+        if (data.id === offer.id) {
+          offer.status = CONSTANTS.OFFER_STATUS_PENDING;
+        }
       } else if (data.id === offer.id) {
         offer.status = CONSTANTS.OFFER_STATUS_REJECTED;
       }

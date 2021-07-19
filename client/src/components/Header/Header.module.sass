@@ -4,14 +4,14 @@
   flex-direction: column
   justify-content: flex-start
   width: 100%
+  border-bottom: 1px solid #ebebeb
 
   .navContainer
     width: 100%
     margin: 0 auto
     display: flex
-    justify-content: space-around
+    justify-content: space-between
     align-items: center
-    border-bottom: 1px solid #ebebeb
     @media(max-width: 920px)
       justify-content: center
     @media(max-width: 700px)
@@ -32,10 +32,16 @@
       font-size: 14px
       font-weight: 400
       margin-bottom: 10px
+      a
+        color: #28d2d0
+        text-decoration: none
 
       &:hover
         color: white
         background-color: #28d2d0
+        a
+          color: white
+          text-decoration: none
 
     .leftNav
       display: flex
@@ -127,7 +133,7 @@
     display: flex
     flex-direction: row
     align-items: center
-    justify-content: space-around
+    justify-content: space-between
     margin-bottom: 13px
 
     .userButtonsContainer
@@ -206,7 +212,6 @@
       justify-content: center
       align-items: center
       padding: 0 15px
-      margin-left: 120px
       height: 40px
       @media(max-width: 600px)
         margin-left: 10px

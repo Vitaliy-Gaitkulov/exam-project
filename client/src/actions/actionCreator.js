@@ -362,7 +362,7 @@ export const changeContestViewMode = data => {
 export const changeShowImage = data => {
   return {
     type: ACTION.CHANGE_SHOW_IMAGE,
-    data: data,
+    data: data, 
   };
 };
 
@@ -429,5 +429,12 @@ export const updatePasswordAction = data => {
   return {
     type: ACTION.UPDATE_PASSWORD_ACTION,
     data: data,
+  };
+};
+
+export const getAllOffersAction = data => {
+  return {
+    type: ACTION.GET_ALL_OFFERS_ACTION, 
+    data: data
   };
 };

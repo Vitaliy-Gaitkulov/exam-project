@@ -53,10 +53,6 @@ module.exports = (sequelize, DataTypes) => {
         field: 'passwordHash',
         type: DataTypes.STRING,
         allowNull: false
-        /* set (password) {
-
-          });
-        } */
       },
       email: {
         type: DataTypes.STRING,

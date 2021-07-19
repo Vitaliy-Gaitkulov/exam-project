@@ -40,7 +40,7 @@ module.exports = (sequelize, DataTypes) => {
       },
       status: {
         type: DataTypes.ENUM(...Object.values(OFFER_STATUSES)),
-        defaultValue: OFFER_STATUSES.PENDING,
+        defaultValue: OFFER_STATUSES.MODERATION,
         allowNull: false
       }
     },

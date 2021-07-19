@@ -30,14 +30,6 @@ class AuthApi {
     return this.#_client.post(`${this._url}refresh`, data);
   };
 
-  // refreshPassword = async data => {
-  //   return this.#_client.post(`${this._url}refreshPassword`, data);
-  // };
-
-  // updatePassword = async data => {
-  //   return this.#_client.post(`${this._url}refreshPassword/${data}`, data);
-  // };
-
   logout = () => {
     window.localStorage.removeItem(CONSTANTS.REFRESH_TOKEN);
     this.#_accessToken = null;

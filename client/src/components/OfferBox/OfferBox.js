@@ -157,11 +157,12 @@ const OfferBox = props => {
         <div className={styles.responseConainer}>
           {contestType === CONSTANTS.LOGO_CONTEST ? (
             <img
-              onClick={() =>
-                props.changeShowImage({
+              onClick={() =>{
+                return props.changeShowImage({
                   imagePath: data.fileName,
                   isShowOnFull: true
-                })
+                })}
+               
               }
               className={styles.responseLogo}
               src={`${CONSTANTS.publicURL}${data.fileName}`}

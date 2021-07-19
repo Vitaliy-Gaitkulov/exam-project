@@ -23,6 +23,7 @@ import PrivateRoute from './components/PrivateRoute/PrivateRoute';
 import HowItWorksPage from './pages/HowItWorksPage/HowItWorksPage';
 import EventsPage from './pages/EventsPage/EventsPage';
 import PasswordResetPage from './pages/PasswordResetPage/PasswordResetPage';
+import AllOffersPage from './pages/AllOffersPage/AllOffersPage';
 
 function App () {
   const dispatch = useDispatch();
@@ -53,7 +54,17 @@ function App () {
         <Route exact path='/registration' component={RegistrationPage} />
         <Route exact path='/how-it-works' component={HowItWorksPage} />
         <Route exact path='/password_reset' component={PasswordResetPage} />
-        <Route exact path='/password_reset/:hash' component={PasswordResetPage} />
+        <Route
+          exact
+          path='/password_reset/:hash'
+          component={PasswordResetPage}
+        />
+        <PrivateRoute
+          roles={['moderator']}
+          exact
+          path='/allOffers'
+          component={AllOffersPage}
+        />
         <PrivateRoute
           roles={['customer']}
           exact
