@@ -4,7 +4,8 @@
   flex-direction: column
   justify-content: flex-start
   width: 100%
-  border-bottom: 1px solid #ebebeb
+  border-bottom: 1px solid #ececec
+  box-shadow: 0px 5px 14px -5px rgba(34, 60, 80, 0.11)
 
   .navContainer
     width: 100%
@@ -12,36 +13,33 @@
     display: flex
     justify-content: space-between
     align-items: center
+    position: relative
     @media(max-width: 920px)
       justify-content: center
     @media(max-width: 700px)
       justify-content: flex-start
 
     .logo
-      align-self: flex-end
+      max-width: 150px
       @media(max-width: 920px)
         display: none
 
+    .wrapperButton
+      display: flex
+      align-items: center
     .startContestBtn
-      text-align: center
-      max-width: 340px
-      padding: 10px 22px
-      border: 2px solid #28d2d0
-      color: #28d2d0
-      border-radius: 5px
+      max-height: 45px
       font-size: 14px
       font-weight: 400
-      margin-bottom: 10px
-      a
-        color: #28d2d0
-        text-decoration: none
-
+      position: relative
+      bottom: 0
+      transition: bottom .3s
       &:hover
-        color: white
-        background-color: #28d2d0
-        a
-          color: white
-          text-decoration: none
+        box-shadow: 0px 5px 10px 2px rgba(0, 127, 224, 0.2)
+        bottom: 4px
+      a
+        color: #fff
+        text-decoration: none
 
     .leftNav
       display: flex
@@ -51,7 +49,6 @@
 
       .nav
         display: flex
-
         ul
           margin: 0
           list-style: none
@@ -63,48 +60,39 @@
           @media(max-width: 700px)
             flex-direction: column
             align-items: flex-start
-
           &:last-child li
             ul
               width: 200px
-
           li
             display: flex
             align-items: center
             justify-content: flex-start
-            margin-right: 30px
+            padding: 15px 25px
             position: relative
+            font-size: 1.2rem
+            cursor: pointer
             @media(max-width: 700px)
               width: 100%
               padding: 0 15px
-
             &:hover
               span
-                color: #f27e51
-
+                color: #377dff
               ul
                 display: block
                 position: absolute
                 border: 1px solid #eee
                 z-index: 1000
-                top: 46px
+                top: 100%
                 background-color: white
+                box-shadow: 0px 5px 10px 2px rgba(34, 60, 80, 0.2)
                 @media(max-width: 700px)
                   top: auto
                   left: 145px
-
             ul
               padding: 0
               margin: 0
               width: 160px
               display: none
-
-              .last
-                width: 100%
-                padding-top: 8px
-                box-sizing: border-box
-                border-top: 1px solid aquamarine
-
               li
                 box-sizing: border-box
                 width: 100%
@@ -114,19 +102,15 @@
 
                 &:hover
                   background: #f9fafb
-
                 a
-                  font-size: 12px
+                  font-size: 14px
                   text-decoration: none
-                  color: #333
-
+                  color: #77838f
                   &:hover
-                    color: #f27e51
-
+                    color: #377dff
             span
-              color: #495d8b
-              font-size: 15px
-              font-weight: 300
+              color: #77838f
+              font-size: 1rem
               padding: 15px 0
 
   .loginSignnUpHeaders
@@ -150,20 +134,18 @@
         margin-left: 0
 
       .emailIcon
-        padding: 0 15px
+        padding: 5px
 
       .userInfo
         display: flex
         justify-content: center
         align-items: center
         padding: 0 15px
-
         &:hover
           ul
             display: block
             position: absolute
-            top: 10px
-
+            top: 30px
         ul
           border: 1px solid #eee
           z-index: 500
@@ -172,24 +154,25 @@
           background: white
           width: 180px
           display: none
-
+          box-shadow: 0px 5px 10px 2px rgba(34, 60, 80, 0.2)
           li
             text-align: left
-
+            cursor: pointer
             &:hover
               background: #f9fafb
-
-            span
+            a
+              min-width: 100%
+              text-decoration: none
               display: inline-block
               padding: 5px 15px
-              color: #333
+              color: #718888
               font-size: 16px
-
+              &:hover
+                color: #377dff
         img
           width: 20px
           height: 20px
           border-radius: 10px
-
         span
           padding: 0
           margin-left: 5px
@@ -197,7 +180,6 @@
           font-weight: 400
           font-size: 16px
           border: none
-
       span
         padding: 0 15px
         color: #718888
@@ -218,10 +200,13 @@
       @media(max-width: 360px)
         padding: 0 5px
         margin-left: 0
-
-      span
-        color: #337ab7
+      a
+        text-decoration: none
+        color: #555c68
         font-size: 14px
-        margin-left: 10px
+        margin-left: 5px
+        cursor: pointer
+        &:hover
+          color: #377dff
         @media(max-width: 360px)
           font-size: 12px
