@@ -1,5 +1,6 @@
 const { TokenExpiredError, JsonWebTokenError } = require('jsonwebtoken');
 const { UniqueConstraintError } = require('sequelize');
+const { logger } = require('./logger');
 
 module.exports.tokenErrorHandler = (err, req, res, next) => {
   if (err instanceof TokenExpiredError) {
@@ -28,6 +29,7 @@ module.exports.validationErrorHandler = () => {};
 module.exports.basicErrorHandler = (err, req, res, next) => {
   console.log('LOG ERROR=>>>>');
   console.dir(err);
+  logger(err);
 
   if (!err.message || !err.status) {
     return res.status(500).send('Server Error');
