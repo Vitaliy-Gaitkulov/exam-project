@@ -12,8 +12,6 @@ module.exports.getAllOffers = async (req, res, next) => {
       ...pagination
     });
 
-    console.log(pagination);
-
     const users = await db.User.findAll({
       attributes: {
         exclude: ['password'],

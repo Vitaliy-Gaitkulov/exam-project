@@ -4,15 +4,14 @@ const transporter = nodemailer.createTransport(
   {
     host: 'smtp.gmail.com',
     port: 587,
-    secure: false, // true for 465, false for other ports
-    // Пожалуйста, используйте свой собственный gmail аккаунт для рассылки
+    secure: false,
     auth: {
-      user: 'sqdhlp@gmail.com', // (замените звездочики на название вашего почтового ящика gmail)
-      pass: 'Squadhelp123', // (замените звездочики на название вашего почтового ящика)
+      user: 'sqdhlp@gmail.com',
+      pass: 'Squadhelp123',
     },
   },
   {
-    from: 'Mailer Test <sqdhlp@gmail.com>', // (замените звездочики на название вашего почтового ящика gmail)
+    from: 'Mailer Test <sqdhlp@gmail.com>',
   }
 );
 

@@ -17,7 +17,6 @@ export default function (state = initialState, action) {
       };
     }
     case ACTION.GET_ALL_OFFERS_SUCCESS: {
-      console.log(action.data);
       return {
         ...state,
         isFetching: false,

@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import * as Yup from 'yup';
 import { differenceInSeconds, formatDistanceStrict } from 'date-fns';
 import { Container } from 'react-bootstrap';
 import styles from './EventDashboard.module.sass';

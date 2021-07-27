@@ -22,7 +22,6 @@ module.exports.signIn = async (req, res, next) => {
     }
     next(createHttpError(401, 'Invalid credentials'));
   } catch (error) {
-    console.log('catched ,', error);
     next(error);
   }
 };
@@ -93,7 +92,6 @@ module.exports.refreshPassword = async (req, res, next) => {
     
     res.status(201).send({ data: 1 });
   } catch (error) {
-    console.log('catched ,', error);
     next(error);
   }
 };
@@ -113,7 +111,6 @@ module.exports.refreshPasswordHash = async (req, res, next) => {
     );
 
     if (rowsCount !== 1) {
-      console.log('error update');
       return next(createError(400, 'User cant be updated'));
     }
 
