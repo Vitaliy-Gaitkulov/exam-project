@@ -44,7 +44,9 @@ const ContestPage = props => {
     const array = [];
     for (let i = 0; i < contestByIdStore.offers.length; i++) {
       if (
-        contestByIdStore.offers[i].status !== CONSTANTS.OFFER_STATUS_MODERATION
+        contestByIdStore.offers[i].status !==
+          CONSTANTS.OFFER_STATUS_MODERATION &&
+        contestByIdStore.offers[i].status !== CONSTANTS.OFFER_STATUS_BANNED
       ) {
         array.push(
           <OfferBox

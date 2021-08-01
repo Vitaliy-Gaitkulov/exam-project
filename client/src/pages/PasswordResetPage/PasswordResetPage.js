@@ -1,7 +1,7 @@
-import React, { useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import React from 'react';
+import { useDispatch } from 'react-redux';
 import PasswordResetForm from '../../components/PasswordResetForm/PasswordResetForm';
-import { clearAuth, updatePasswordAction } from '../../actions/actionCreator';
+import { updatePasswordAction } from '../../actions/actionCreator';
 import styles from './PasswordResetPage.module.sass';
 
 const PasswordResetPage = props => {
@@ -13,7 +13,7 @@ const PasswordResetPage = props => {
 
   if(hash){
     dispatch(updatePasswordAction(hash));
-    props.history.replace('/');
+    props.history.replace('/login');
   }
 
   return (

@@ -3,7 +3,7 @@
     "username": "postgres",
     "password": "postgres",
     "database": "sqh_dev",
-    "host": "localhost",
+    "host": "db-dev",
     "dialect": "postgres",
     "operatorsAliases": "Op",
     "seedersStorage": "sequelize",

@@ -86,23 +86,23 @@ module.exports.refreshPassword = async (req, res, next) => {
       html: `
           <h1>Подтвердите изменение пароля, перейдите по ссылке</h1>
           <a href="http://127.0.0.1:5000/password_reset/${tokenPass}/">Подтвердить</a>
-          `
+          `,
     };
     mailer(message);
-    
+
     res.status(201).send({ data: 1 });
   } catch (error) {
     next(error);
   }
 };
 
-module.exports.refreshPasswordHash = async (req, res, next) => {
+module.exports.updatePassword = async (req, res, next) => {
   try {
-    const { hash } = req.params;
+    const { hash } = req.body;
 
     const { email, password } = jwt.verify(hash, 'secret');
 
-    const [rowsCount, [updatedUser]] = await User.update(
+    const [rowsCount] = await User.update(
       { password: password },
       {
         where: { email },
@@ -111,7 +111,7 @@ module.exports.refreshPasswordHash = async (req, res, next) => {
     );
 
     if (rowsCount !== 1) {
-      return next(createError(400, 'User cant be updated'));
+      return next(createHttpError(400, 'User cant be updated'));
     }
 
     res.status(201).send({ data: 'ok' });

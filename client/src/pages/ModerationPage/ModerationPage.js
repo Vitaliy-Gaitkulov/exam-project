@@ -3,7 +3,7 @@ import AllOfferList from '../../components/AllOfferList/AllOfferList';
 import Header from '../../components/Header/Header';
 import { Container } from 'react-bootstrap';
 
-const AllOffersPage = () => {
+const ModerationPage = () => {
   return (
     <>
       <Header />
@@ -14,4 +14,4 @@ const AllOffersPage = () => {
   );
 };
 
-export default AllOffersPage;
+export default ModerationPage;

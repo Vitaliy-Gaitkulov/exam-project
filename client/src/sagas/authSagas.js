@@ -8,7 +8,7 @@ export function * refreshPasswordSaga (action) {
   yield put({ type: ACTION.REFRESH_PASSWORD_REQUEST });
   try {
     const {data} = yield refreshPassword(action.data);
-    yield put({ type: ACTION.REFRESH_PASSWORD_SUCCESS, data: "ok" });
+    yield put({ type: ACTION.REFRESH_PASSWORD_SUCCESS, data: data });
   } catch (err) {
     yield put({ type: ACTION.REFRESH_PASSWORD_ERROR, error: err.response });
   }
@@ -17,8 +17,7 @@ export function * refreshPasswordSaga (action) {
 export function * updatePasswordSaga (action) {
   yield put({ type: ACTION.UPDATE_PASSWORD_REQUEST });
   try {
-    const { data } = yield updatePassword(action.data);
-    history.replace('/');
+    const { data } = yield updatePassword({hash: action.data});
     yield put({ type: ACTION.UPDATE_PASSWORD_SUCCESS, data });
   } catch (err) {
     yield put({ type: ACTION.UPDATE_PASSWORD_ERROR, error: err.response });

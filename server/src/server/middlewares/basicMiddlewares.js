@@ -86,7 +86,7 @@ module.exports.canSendOffer = async (req, res, next) => {
 
 module.exports.onlyForCustomerWhoCreateContest = async (req, res, next) => {
   try {
-    if (req.tokenData.role !== CONSTANTS.ROLES.MODERATOR) {
+    if (req.tokenData.role === CONSTANTS.ROLES.CUSTOMER) {
       const result = await bd.Contest.findOne({
         where: {
           userId: req.tokenData.userId,
@@ -97,8 +97,10 @@ module.exports.onlyForCustomerWhoCreateContest = async (req, res, next) => {
       if (!result) {
         return next(new RightsError());
       }
+      next()
+    } else if (req.tokenData.role === CONSTANTS.ROLES.MODERATOR){
+      next();
     }
-    next();
   } catch (e) {
     next(new ServerError());
   }

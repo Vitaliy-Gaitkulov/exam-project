@@ -8,4 +8,9 @@ moderationRouter.post(
   moderationController.getAllOffers
 );
 
+moderationRouter.post(
+  '/setOfferStatusModeration',
+  moderationController.setOfferStatusModeration
+);
+
 module.exports = moderationRouter;

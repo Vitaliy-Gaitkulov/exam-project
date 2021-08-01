@@ -42,6 +42,7 @@ module.exports = {
   },
   OFFER_STATUSES: {
     MODERATION: 'moderation',
+    BANNED: 'banned',
     PENDING: 'pending',
     REJECTED: 'rejected',
     WON: 'won'

@@ -9,7 +9,7 @@ const CtaSection = () => {
     <div className={styles.section}>
       <h3>Ready to get started?</h3>
       <p>Fill out your contest brief and begin receiving custom name suggestions within minutes.</p>
-      <Link to='/'><Button className={styles.button}>Start A Contest</Button></Link>
+      <Link to='#'><Button className={styles.button}>Start A Contest</Button></Link>
     </div>
   );
 }

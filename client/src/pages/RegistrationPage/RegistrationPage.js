@@ -4,11 +4,12 @@ import RegistrationForm from '../../components/RegistrationForm/RegistrationForm
 import styles from './RegistrationPage.module.sass';
 import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import { clearErrorSignUpAndLogin } from '../../actions/actionCreator';
+import { clearErrorSignUpAndLogin, clearUserStore } from '../../actions/actionCreator';
 import CONSTANTS from '../../constants';
 
 const RegistrationPage = props => {
   const dispatch = useDispatch();
+  dispatch(clearUserStore());
   dispatch(clearErrorSignUpAndLogin());
 
   const changeRoute = () => {

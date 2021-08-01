@@ -3,6 +3,6 @@ const AuthController = require('../controllers/authController');
 
 
 passwordRouter.post('/refreshPassword',  AuthController.refreshPassword);
-passwordRouter.post('/refreshPassword/:hash',  AuthController.refreshPasswordHash);
+passwordRouter.post('/updatePassword',  AuthController.updatePassword);
 
 module.exports = passwordRouter;

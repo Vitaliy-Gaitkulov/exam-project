@@ -53,11 +53,13 @@ const AllOfferList = () => {
       <>{allOffers()}</>
       <div className={classes.root}>
         <div className={styles.paginationWrapper}>
-          <Pagination
-            count={Math.ceil(paginateCount / 10)}
-            page={page}
-            onChange={handleChange}
-          />
+          {paginateCount != 0 && (
+            <Pagination
+              count={Math.ceil(paginateCount / 10)}
+              page={page}
+              onChange={handleChange}
+            />
+          )}
         </div>
       </div>
     </div>

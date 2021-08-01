@@ -14,28 +14,28 @@ const ClientSection = () => {
           <Row className={styles.row}>
             <Col className='col-sm-4 col-lg-3'>
               <div className={styles.wrapper_link}>
-                <a>
+                <a href="https://www.forbes.com/">
                   <img src='https://www.squadhelp.com/resources/assets/imgs/front/forbes.svg' />
                 </a>
               </div>
             </Col>
             <Col className='col-sm-4 col-lg-3'>
               <div className={styles.wrapper_link}>
-                <a>
+                <a href='https://thenextweb.com/'>
                   <img src='https://www.squadhelp.com/resources/assets/imgs/front/TNW.svg' />
                 </a>
               </div>
             </Col>
             <Col className='col-sm-4 col-lg-3'>
               <div className={styles.wrapper_link}>
-                <a>
+                <a href='https://www.chicagotribune.com/'>
                   <img src='https://www.squadhelp.com/resources/assets/imgs/front/chicago.svg' />
                 </a>
               </div>
             </Col>
             <Col className='col-sm-4 col-lg-3'>
               <div className={styles.wrapper_link}>
-                <a>
+                <a href='https://mashable.com/'>
                   <img src='https://www.squadhelp.com/resources/assets/imgs/front/Mashable.svg' />
                 </a>
               </div>

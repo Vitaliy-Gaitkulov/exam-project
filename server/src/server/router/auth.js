@@ -10,7 +10,5 @@ authRouter.post(
   AuthController.signUp
 );
 authRouter.post('/refresh', checkRefreshToken, AuthController.refresh);
-authRouter.post('/refreshPassword',  AuthController.refreshPassword);
-authRouter.post('/refreshPassword/:hash',  AuthController.refreshPasswordHash);
 
 module.exports = authRouter;

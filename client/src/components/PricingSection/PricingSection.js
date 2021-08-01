@@ -14,7 +14,7 @@ const PricingSection = () => {
           <div className={styles.left_container}>
             <div className={styles.item_wrapper}>
               <span>
-                <i class='fa fa-chevron-right'></i>
+                <i className='fa fa-chevron-right'></i>
               </span>
               <div>
                 <h4>Pay a Fraction of cost vs hiring an agency</h4>
@@ -27,7 +27,7 @@ const PricingSection = () => {
             <hr />
             <div className={styles.item_wrapper}>
               <span>
-                <i class='fa fa-chevron-right'></i>
+                <i className='fa fa-chevron-right'></i>
                 <i className='fas fa-phone-alt' />
               </span>
               <div>
@@ -47,11 +47,11 @@ const PricingSection = () => {
               Speak with a Squadhelp platform expert to learn more and get your
               questions answered.
             </p>
-            <Link className={styles.link}>
+            <Link to={'#'} className={styles.link}>
               <Button className={styles.button}>Schedule Consultation</Button>
             </Link>
             <span>
-              <Icon path={mdiPhoneOutgoingOutline} size={1} />{' '}
+              <Icon path={mdiPhoneOutgoingOutline} size={1} />
               <a>(877) 355-3585</a>
             </span>
             <p>Call us for assistance</p>

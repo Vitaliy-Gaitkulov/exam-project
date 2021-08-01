@@ -13,6 +13,7 @@ services:
       - /client/node_modules
     ports:
       - "5000:3000"
+    stdin_open: true
 
   server-dev:
     build:
@@ -42,9 +43,9 @@ services:
   db-dev:
     image: postgres:13.2-alpine
     environment:
-      - POSTGRES_PASSWORD=password
+      - POSTGRES_PASSWORD=postgres
       - POSTGRES_USER=postgres
-      - POSTGRES_DB=todo-dev
+      - POSTGRES_DB=sqh_dev
     ports:
       - "5432:5432"
 

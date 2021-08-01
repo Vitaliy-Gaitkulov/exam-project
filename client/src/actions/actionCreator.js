@@ -143,6 +143,13 @@ export const setOfferStatus = data => {
   };
 };
 
+export const setOfferStatusModeration = data => {
+  return {
+    type: ACTION.SET_OFFER_STATUS_MODERATION_ACTION,
+    data: data,
+  };
+};
+
 export const createCatalog = data => {
   return {
     type: ACTION.CREATE_CATALOG_REQUEST,

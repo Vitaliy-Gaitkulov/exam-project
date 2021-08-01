@@ -1,7 +1,7 @@
 const fs = require('fs').promises;
 
 module.exports.logger = async err => {
-  const errArray = { errors: [] };
+  let errArray = { errors: [] };
   const error = {
     message: err.message,
     time: Date.now(),
@@ -18,10 +18,6 @@ module.exports.logger = async err => {
       errArray.errors.push(error);
       fs.writeFile('./log.json', `${JSON.stringify(errArray)}`);
     })
-    .catch(err => {
-      errArray.errors.push(error);
-      fs.writeFile('./log.json', `${JSON.stringify(errArray)}`);
-    });
 };
 
 module.exports.loggerCopy = async () => {

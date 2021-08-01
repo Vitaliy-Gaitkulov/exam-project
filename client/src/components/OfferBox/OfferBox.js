@@ -1,41 +1,43 @@
-import React from 'react'
-import styles from './OfferBox.module.sass'
-import CONSTANTS from '../../constants'
-import { connect } from 'react-redux'
-import Rating from 'react-rating'
+import React from 'react';
+import styles from './OfferBox.module.sass';
+import CONSTANTS from '../../constants';
+import { connect } from 'react-redux';
+import Rating from 'react-rating';
 import {
   changeMark,
   clearChangeMarkError,
   goToExpandedDialog,
-  changeShowImage,
-  changeModalShow
-} from '../../actions/actionCreator'
-import { withRouter } from 'react-router-dom'
-import isEqual from 'lodash/isEqual'
-import classNames from 'classnames'
-import { confirmAlert } from 'react-confirm-alert'
-import 'react-confirm-alert/src/react-confirm-alert.css'
-import './confirmStyle.css'
+  changeShowImage
+} from '../../actions/actionCreator';
+import { withRouter } from 'react-router-dom';
+import isEqual from 'lodash/isEqual';
+import classNames from 'classnames';
+import { confirmAlert } from 'react-confirm-alert';
+import 'react-confirm-alert/src/react-confirm-alert.css';
+import './confirmStyle.css';
 
 const OfferBox = props => {
   const findConversationInfo = () => {
-    const { messagesPreview, id } = props
-    const participants = [id, props.data.User.id]
+    const {
+      messagesPreview,
+      user: { id },
+    } = props;
+    const participants = [id, props.data.User.id];
     participants.sort(
       (participant1, participant2) => participant1 - participant2
-    )
+    );
     for (let i = 0; i < messagesPreview.length; i++) {
       if (isEqual(participants, messagesPreview[i].participants)) {
         return {
           participants: messagesPreview[i].participants,
           _id: messagesPreview[i]._id,
           blackList: messagesPreview[i].blackList,
-          favoriteList: messagesPreview[i].favoriteList
-        }
+          favoriteList: messagesPreview[i].favoriteList,
+        };
       }
     }
-    return null
-  }
+    return null;
+  };
 
   const resolveOffer = () => {
     confirmAlert({
@@ -45,14 +47,14 @@ const OfferBox = props => {
         {
           label: 'Yes',
           onClick: () =>
-            props.setOfferStatus(props.data.User.id, props.data.id, 'resolve')
+            props.setOfferStatus(props.data.User.id, props.data.id, 'resolve'),
         },
         {
-          label: 'No'
-        }
-      ]
-    })
-  }
+          label: 'No',
+        },
+      ],
+    });
+  };
 
   const rejectOffer = () => {
     confirmAlert({
@@ -62,52 +64,52 @@ const OfferBox = props => {
         {
           label: 'Yes',
           onClick: () =>
-            props.setOfferStatus(props.data.User.id, props.data.id, 'reject')
+            props.setOfferStatus(props.data.User.id, props.data.id, 'reject'),
         },
         {
-          label: 'No'
-        }
-      ]
-    })
-  }
+          label: 'No',
+        },
+      ],
+    });
+  };
 
   const changeMark = value => {
-    props.clearError()
+    props.clearError();
     props.changeMark({
       mark: value,
       offerId: props.data.id,
       isFirst: !props.data.mark,
-      creatorId: props.data.User.id
-    })
-  }
+      creatorId: props.data.User.id,
+    });
+  };
 
   const offerStatus = () => {
-    const { status } = props.data
+    const { status } = props.data;
     if (status === CONSTANTS.OFFER_STATUS_REJECTED) {
       return (
         <i
           className={classNames('fas fa-times-circle reject', styles.reject)}
         />
-      )
+      );
     } else if (status === CONSTANTS.OFFER_STATUS_WON) {
       return (
         <i
           className={classNames('fas fa-check-circle resolve', styles.resolve)}
         />
-      )
+      );
     }
-    return null
-  }
+    return null;
+  };
 
   const goChat = () => {
     props.goToExpandedDialog({
       interlocutor: props.data.User,
-      conversationData: findConversationInfo()
-    })
-  }
+      conversationData: findConversationInfo(),
+    });
+  };
 
-  const { data, role, id, contestType } = props
-  const { avatar, firstName, lastName, email, rating } = props.data.User
+  const { data, user: { id, role }, contestType } = props;
+  const { avatar, firstName, lastName, email, rating } = props.data.User;
   return (
     <div className={styles.offerContainer}>
       {offerStatus()}
@@ -157,13 +159,12 @@ const OfferBox = props => {
         <div className={styles.responseConainer}>
           {contestType === CONSTANTS.LOGO_CONTEST ? (
             <img
-              onClick={() =>{
+              onClick={() => {
                 return props.changeShowImage({
                   imagePath: data.fileName,
-                  isShowOnFull: true
-                })}
-               
-              }
+                  isShowOnFull: true,
+                });
+              }}
               className={styles.responseLogo}
               src={`${CONSTANTS.publicURL}${data.fileName}`}
               alt='logo'
@@ -212,25 +213,25 @@ const OfferBox = props => {
         </div>
       )}
     </div>
-  )
-}
+  );
+};
 
 const mapDispatchToProps = dispatch => {
   return {
     changeMark: data => dispatch(changeMark(data)),
     clearError: () => dispatch(clearChangeMarkError()),
     goToExpandedDialog: data => dispatch(goToExpandedDialog(data)),
-    changeShowImage: data => dispatch(changeShowImage(data))
-  }
-}
+    changeShowImage: data => dispatch(changeShowImage(data)),
+  };
+};
 
 const mapStateToProps = state => {
-  const { changeMarkError, isShowModal } = state.contestByIdStore
-  const { id, role } = state.auth.user
-  const { messagesPreview } = state.chatStore
-  return { changeMarkError, id, role, messagesPreview, isShowModal }
-}
+  const { changeMarkError, isShowModal } = state.contestByIdStore;
+  const { user } = state.auth;
+  const { messagesPreview } = state.chatStore;
+  return { changeMarkError, user, messagesPreview, isShowModal };
+};
 
 export default withRouter(
   connect(mapStateToProps, mapDispatchToProps)(OfferBox)
-)
+);

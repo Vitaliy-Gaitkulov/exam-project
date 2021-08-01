@@ -1,14 +1,20 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 import LoginForm from '../../components/LoginForm/LoginForm';
 import Logo from '../../components/Logo';
 import styles from './LoginPage.module.sass';
-import { Link } from 'react-router-dom';
+import { clearUserStore } from '../../actions/actionCreator';
 import CONSTANTS from '../../constants';
 
 const LoginPage = props => {
+  const dispatch = useDispatch();
+  dispatch(clearUserStore());
   const changeRoute = () => {
     props.history.replace('/');
   };
+
+
   return (
     <div className={styles.mainContainer}>
       <div className={styles.loginContainer}>

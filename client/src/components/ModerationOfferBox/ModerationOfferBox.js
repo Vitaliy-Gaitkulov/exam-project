@@ -1,8 +1,8 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import styles from './ModerationOfferBox.module.sass';
 import { Button } from 'react-bootstrap';
-import { clearSetOfferStatusError, setOfferStatus } from '../../actions/actionCreator';
-import { useDispatch, useSelector } from 'react-redux';
+import { setOfferStatusModeration } from '../../actions/actionCreator';
+import { useDispatch} from 'react-redux';
 import { confirmAlert } from 'react-confirm-alert'
 import CONSTANTS from '../../constants';
 
@@ -26,8 +26,9 @@ const ModerationOfferBox = props => {
       command,
       offerId,
       creatorId,
+      email
     };
-    dispatch(setOfferStatus(obj));
+    dispatch(setOfferStatusModeration(obj));
     callback()
   };
 
@@ -56,7 +57,7 @@ const ModerationOfferBox = props => {
         {
           label: 'Yes',
           onClick: () =>
-          setOfferStatusFunc(user.id, id, 'reject')
+          setOfferStatusFunc(user.id, id, 'banned')
         },
         {
           label: 'No'

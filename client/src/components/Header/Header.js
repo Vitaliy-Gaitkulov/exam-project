@@ -40,7 +40,7 @@ const Header = props => {
                 <Link to='/account'>My Account</Link>
               </li>
 
-              {auth.user && auth.user.role !== CONSTANTS.CREATOR && (
+              {auth.user && auth.user.role === CONSTANTS.CUSTOMER && (
                 <li>
                   <Link to='/events'>Events</Link>
                 </li>

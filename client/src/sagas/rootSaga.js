@@ -33,7 +33,7 @@ import {
   changeCatalogName,
 } from './chatSagas';
 
-import {moderationSaga} from './moderationSaga'
+import {moderationSaga, setOfferStatusModerationSaga} from './moderationSaga'
 
 function * rootSaga () {
   yield takeLatest(ACTION.GET_ALL_OFFERS_ACTION, moderationSaga)
@@ -56,6 +56,7 @@ function * rootSaga () {
   yield takeLatest(ACTION.UPDATE_CONTEST_ACTION, updateContestSaga);
   yield takeEvery(ACTION.SET_OFFER_ACTION, addOfferSaga);
   yield takeLatest(ACTION.SET_OFFER_STATUS_ACTION, setOfferStatusSaga);
+  yield takeLatest(ACTION.SET_OFFER_STATUS_MODERATION_ACTION, setOfferStatusModerationSaga);
   yield takeLatest(ACTION.CHANGE_MARK_ACTION, changeMarkSaga);
   yield takeLatest(ACTION.UPDATE_USER_DATA, updateUserData);
   yield takeLatest(ACTION.GET_PREVIEW_CHAT_ASYNC, previewSaga);

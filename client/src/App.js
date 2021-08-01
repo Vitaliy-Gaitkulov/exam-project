@@ -23,7 +23,7 @@ import PrivateRoute from './components/PrivateRoute/PrivateRoute';
 import HowItWorksPage from './pages/HowItWorksPage/HowItWorksPage';
 import EventsPage from './pages/EventsPage/EventsPage';
 import PasswordResetPage from './pages/PasswordResetPage/PasswordResetPage';
-import AllOffersPage from './pages/AllOffersPage/AllOffersPage';
+import ModerationPage from './pages/ModerationPage/ModerationPage';
 
 function App () {
   const dispatch = useDispatch();
@@ -63,7 +63,7 @@ function App () {
           roles={['moderator']}
           exact
           path='/allOffers'
-          component={AllOffersPage}
+          component={ModerationPage}
         />
         <PrivateRoute
           roles={['customer']}
