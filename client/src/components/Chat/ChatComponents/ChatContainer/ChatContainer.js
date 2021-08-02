@@ -14,7 +14,7 @@ const ChatContainer = props => {
 
   const handler = useCallback(
     event => {
-      if (!ref.current.contains(event.target)) {
+      if (isShow === true && !ref.current.contains(event.target)) {
         dispatch({ type: 'CHANGE_CHAT_SHOW', data: false });
       }
     },

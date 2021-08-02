@@ -49,8 +49,10 @@ const AllOfferList = () => {
   };
 
   return (
-    <div className={styles.container}>
-      <>{allOffers()}</>
+    <>
+      <div className={styles.container}>
+        <>{allOffers()}</>
+      </div>
       <div className={classes.root}>
         <div className={styles.paginationWrapper}>
           {paginateCount != 0 && (
@@ -62,7 +64,7 @@ const AllOfferList = () => {
           )}
         </div>
       </div>
-    </div>
+    </>
   );
 };
 
