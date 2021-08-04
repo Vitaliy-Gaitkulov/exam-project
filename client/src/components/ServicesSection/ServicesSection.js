@@ -24,6 +24,7 @@ const ServicesSection = () => {
           <div className={styles.card}>
             <img
               src={`${CONSTANTS.STATIC_IMAGES_PATH}how_it_works_page/launch_contest.png`}
+              alt="launch_contest.png"
             />
             <h3>Launch a Contest</h3>
             <p>
@@ -38,6 +39,7 @@ const ServicesSection = () => {
           <div className={styles.card}>
             <img
               src={`${CONSTANTS.STATIC_IMAGES_PATH}how_it_works_page/explore_names.png`}
+              alt="explore_names.png"
             />
             <h3>Explore Names For Sale</h3>
             <p>
@@ -52,6 +54,7 @@ const ServicesSection = () => {
           <div className={styles.card}>
             <img
               src={`${CONSTANTS.STATIC_IMAGES_PATH}how_it_works_page/agencylevel_managet.png`}
+              alt="agencylevel_managet.png"
             />
             <h3>Agency-level Managed Contests</h3>
             <p>

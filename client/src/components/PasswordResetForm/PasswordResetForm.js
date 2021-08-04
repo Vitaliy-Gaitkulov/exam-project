@@ -5,6 +5,7 @@ import { refreshPassword } from '../../actions/actionCreator';
 import Schems from '../../validators/validationSchems';
 import styles from './PasswordResetForm.module.sass';
 import InputField from '../InputField/InputField';
+import { Link } from 'react-router-dom';
 
 const PasswordResetForm = () => {
   const dispatch = useDispatch();
@@ -40,6 +41,11 @@ const PasswordResetForm = () => {
           />
         </Form>
       </Formik>
+      <Link to='/login' style={{ textDecoration: 'none' }}>
+        <div className={styles.linkLoginContainer}>
+          <span>Back</span>
+        </div>
+      </Link>
     </div>
   );
 };

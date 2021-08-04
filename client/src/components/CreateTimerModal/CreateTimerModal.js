@@ -1,9 +1,8 @@
 import React from 'react';
-import { Modal, Button } from 'react-bootstrap';
+import { Modal } from 'react-bootstrap';
 import { Formik, Field, Form } from 'formik';
 import { format } from 'date-fns';
 import styles from './CreateTimerModal.module.sass';
-import * as yup from 'yup';
 
 const CreateTimerModal = props => {
   const { Submit } = props;

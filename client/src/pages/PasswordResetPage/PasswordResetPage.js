@@ -11,7 +11,7 @@ const PasswordResetPage = props => {
     params: { hash },
   } = props.match;
 
-  if(hash){
+  if (hash) {
     dispatch(updatePasswordAction(hash));
     props.history.replace('/login');
   }

@@ -5,7 +5,6 @@ import styles from './EventDashboard.module.sass';
 import cx from 'classnames';
 import CreateTimerModal from '../CreateTimerModal/CreateTimerModal';
 
-
 const EventDashboard = () => {
   const initialState = () =>
     JSON.parse(window.localStorage.getItem('stateStorage')) || [{}];
@@ -113,24 +112,23 @@ const EventDashboard = () => {
       return sortArr;
     }
   };
-  const initialValues = {
-    name: '',
-    date: new Date(),
-  };
+  
   return (
     <>
       <Container>
         <div className={styles.container}>
-          
           <div className={styles.wrapper_list_item}>
             <div className={styles.wrapper_header_list}>
               <h2>Live upcomming checks</h2>
               <span>Remaining time</span>
             </div>
             <ul className={styles.wrapper_ul}>{setTimer()}</ul>
-            <div className={styles.create_timer} onClick={() => setModalShow(true)}></div>
+            <div
+              className={styles.create_timer}
+              onClick={() => setModalShow(true)}
+            ></div>
             <CreateTimerModal
-            Submit={Submit}
+              Submit={Submit}
               show={modalShow}
               onHide={() => setModalShow(false)}
             />

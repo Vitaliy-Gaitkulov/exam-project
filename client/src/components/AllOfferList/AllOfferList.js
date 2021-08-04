@@ -28,6 +28,9 @@ const AllOfferList = () => {
 
   useEffect(() => {
     getData();
+    return ()=>{
+      getData();
+    }
   }, [page]);
 
   const handleChange = (event, value) => {
@@ -43,6 +46,7 @@ const AllOfferList = () => {
             <ModerationOfferBox callback={getData} key={i} offerData={value} />
           );
         }
+        return;
       });
     }
     return arr;
@@ -55,7 +59,7 @@ const AllOfferList = () => {
       </div>
       <div className={classes.root}>
         <div className={styles.paginationWrapper}>
-          {paginateCount != 0 && (
+          {paginateCount !== 0 && (
             <Pagination
               count={Math.ceil(paginateCount / 10)}
               page={page}

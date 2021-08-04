@@ -113,16 +113,16 @@ const Header = props => {
                       />
                       <ul>
                         <li>
-                          <a href='#'>How it works</a>
+                          <a href='/#'>How it works</a>
                         </li>
                         <li>
-                          <a href='#'>Pricing</a>
+                          <a href='/#'>Pricing</a>
                         </li>
                         <li>
-                          <a href='#'>Agency Service</a>
+                          <a href='/#'>Agency Service</a>
                         </li>
                         <li>
-                          <a href='#'>Active Contests</a>
+                          <a href='/#'>Active Contests</a>
                         </li>
                       </ul>
                     </li>
@@ -134,22 +134,22 @@ const Header = props => {
                       />
                       <ul>
                         <li>
-                          <a href='#'>Popular Names</a>
+                          <a href='/#'>Popular Names</a>
                         </li>
                         <li>
-                          <a href='#'>Limited Time Discounts</a>
+                          <a href='/#'>Limited Time Discounts</a>
                         </li>
                         <li>
-                          <a href='#'>By Category</a>
+                          <a href='/#'>By Category</a>
                         </li>
                         <li>
-                          <a href='#'>By Type</a>
+                          <a href='/#'>By Type</a>
                         </li>
                         <li>
-                          <a href='#'>Visual Name Search</a>
+                          <a href='/#'>Visual Name Search</a>
                         </li>
                         <li>
-                          <a href='#'>For Sellers</a>
+                          <a href='/#'>For Sellers</a>
                         </li>
                       </ul>
                     </li>
@@ -161,16 +161,16 @@ const Header = props => {
                       />
                       <ul>
                         <li>
-                          <a href='#'>Names</a>
+                          <a href='/#'>Names</a>
                         </li>
                         <li>
-                          <a href='#'>Taglines</a>
+                          <a href='/#'>Taglines</a>
                         </li>
                         <li>
-                          <a href='#'>Logos</a>
+                          <a href='/#'>Logos</a>
                         </li>
                         <li className={styles.last}>
-                          <a href='#'>Testimonials</a>
+                          <a href='/#'>Testimonials</a>
                         </li>
                       </ul>
                     </li>
@@ -182,22 +182,22 @@ const Header = props => {
                       />
                       <ul>
                         <li>
-                          <a href='#'>Name Ideas</a>
+                          <a href='/#'>Name Ideas</a>
                         </li>
                         <li>
-                          <a href='#'>Business Name Generator</a>
+                          <a href='/#'>Business Name Generator</a>
                         </li>
                         <li>
-                          <a href='#'>Audience Testing Service</a>
+                          <a href='/#'>Audience Testing Service</a>
                         </li>
                         <li>
-                          <a href='#'>Video Creation Service</a>
+                          <a href='/#'>Video Creation Service</a>
                         </li>
                         <li>
-                          <a href='#'>Trademark Filling Service</a>
+                          <a href='/#'>Trademark Filling Service</a>
                         </li>
                         <li>
-                          <a href='#'>Startup Resurses</a>
+                          <a href='/#'>Startup Resurses</a>
                         </li>
                       </ul>
                     </li>
@@ -210,10 +210,10 @@ const Header = props => {
                       />
                       <ul>
                         <li>
-                          <a href='#'>Naming A Business</a>
+                          <a href='/#'>Naming A Business</a>
                         </li>
                         <li>
-                          <a href='#'>Validation & Testing</a>
+                          <a href='/#'>Validation & Testing</a>
                         </li>
                       </ul>
                     </li>
@@ -221,22 +221,26 @@ const Header = props => {
                 </div>
                 {auth.user && auth.user.role === CONSTANTS.CUSTOMER && (
                   <div className={styles.wrapperButton}>
-                    <Button
-                      variant='primary'
-                      className={styles.startContestBtn}
-                    >
-                      <Link to='/startContest'>Start Contest</Link>
-                    </Button>
+                    <Link to='/startContest'>
+                      <Button
+                        variant='primary'
+                        className={styles.startContestBtn}
+                      >
+                        Start Contest
+                      </Button>
+                    </Link>
                   </div>
                 )}
                 {auth.user && auth.user.role === CONSTANTS.MODERATOR && (
                   <div className={styles.wrapperButton}>
-                    <Button
-                      variant='primary'
-                      className={styles.startContestBtn}
-                    >
-                      <Link to='/allOffers'>All Offers</Link>
-                    </Button>
+                    <Link to='/allOffers'>
+                      <Button
+                        variant='primary'
+                        className={styles.startContestBtn}
+                      >
+                        All Offers
+                      </Button>
+                    </Link>
                   </div>
                 )}
               </div>

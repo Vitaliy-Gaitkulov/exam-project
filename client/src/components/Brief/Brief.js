@@ -41,10 +41,9 @@ const Brief = props => {
 
     Object.keys(props.contestData).map(key => {
       if (key.toString() === 'originalFileName') {
-        defaultData.file = { name: key };
-      }else {
-        defaultData[key] = key;
+        return (defaultData.file = { name: key });
       }
+      return (defaultData[key] = key);
     });
 
     return defaultData;

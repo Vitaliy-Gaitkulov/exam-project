@@ -4,7 +4,10 @@ import RegistrationForm from '../../components/RegistrationForm/RegistrationForm
 import styles from './RegistrationPage.module.sass';
 import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import { clearErrorSignUpAndLogin, clearUserStore } from '../../actions/actionCreator';
+import {
+  clearErrorSignUpAndLogin,
+  clearUserStore,
+} from '../../actions/actionCreator';
 import CONSTANTS from '../../constants';
 
 const RegistrationPage = props => {
@@ -21,11 +24,11 @@ const RegistrationPage = props => {
       <div className={styles.signUpContainer}>
         <div className={styles.headerSignUpPage}>
           <Logo src={`${CONSTANTS.STATIC_IMAGES_PATH}logo.png`} />
-          <div className={styles.linkLoginContainer}>
-            <Link to='/login' style={{ textDecoration: 'none' }}>
+          <Link to='/login' style={{ textDecoration: 'none' }}>
+            <div className={styles.linkLoginContainer}>
               <span>Login</span>
-            </Link>
-          </div>
+            </div>
+          </Link>
         </div>
         <RegistrationForm changeRoute={changeRoute} />
       </div>

@@ -12,6 +12,7 @@ const FeaturesSection = () => {
           <div className={styles.header_wrapper}>
             <img
               src={`${CONSTANTS.STATIC_IMAGES_PATH}how_it_works_page/cup.png`}
+              alt="cup.png"
             />
             <h2>How Do Naming Contests Work?</h2>
           </div>
@@ -22,6 +23,7 @@ const FeaturesSection = () => {
           <div className={styles.image_wrapper}>
             <img
               src={`${CONSTANTS.STATIC_IMAGES_PATH}how_it_works_page/how_do_naming_cw.png`}
+              alt="how_do_naming_cw.png"
             />
           </div>
         </Col>
