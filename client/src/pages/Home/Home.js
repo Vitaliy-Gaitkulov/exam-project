@@ -49,7 +49,7 @@ const Home = props => {
                 explore our hand-picked collection of premium names available
                 for immediate purchase
               </p>
-              {user && user.role === CONSTANTS.MODERATOR ? (
+              {user&&user.role&&(user && user.role === CONSTANTS.MODERATOR ? (
                 <div variant='primary' className={styles.button}>
                   <Link className={styles.button__link} to='/allOffers'>
                     ALL OFFERS
@@ -61,7 +61,7 @@ const Home = props => {
                     DASHBOARD
                   </Link>
                 </div>
-              )}
+              ))}
             </div>
             <div className={styles.greyContainer}>
               <SlideBar

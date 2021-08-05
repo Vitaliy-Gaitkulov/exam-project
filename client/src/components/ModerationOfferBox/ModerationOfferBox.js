@@ -10,7 +10,7 @@ const ModerationOfferBox = props => {
 
   const dispatch = useDispatch();
   const {
-    callback,
+    update,
     offerData: {
       id,
       status,
@@ -29,7 +29,7 @@ const ModerationOfferBox = props => {
       email
     };
     dispatch(setOfferStatusModeration(obj));
-    callback()
+    update()
   };
 
   const resolveOffer = () => {

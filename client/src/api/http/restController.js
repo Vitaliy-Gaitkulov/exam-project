@@ -1,13 +1,13 @@
 import httpClient from './';
 
-export const getAllOffers = data => httpClient.post('allOffers', data);
+export const getAllOffers = data => httpClient.post('moderation/allOffers', data);
 
 export const refreshPassword = data => httpClient.post('refreshPassword', data);
 export const updatePassword = data => {httpClient.post('updatePassword', data)};
 
 export const setNewOffer = data => httpClient.post('setNewOffer', data);
 export const setOfferStatus = data => httpClient.post('setOfferStatus', data);
-export const setOfferStatusModeration = data => httpClient.post('setOfferStatusModeration', data);
+export const setOfferStatusModeration = data => httpClient.post('/moderation/setOfferStatusModeration', data);
 export const changeMark = data => httpClient.post('changeMark', data);
 
 export const payMent = data => httpClient.post('pay', data.formData);

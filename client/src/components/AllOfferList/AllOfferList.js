@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getAllOffersAction } from '../../actions/actionCreator';
 import CONSTANTS from '../../constants';
@@ -17,39 +17,34 @@ const useStyles = makeStyles(theme => ({
 
 const AllOfferList = () => {
   const dispatch = useDispatch();
+  
   const {
     moderation: { offers, paginateCount },
   } = useSelector(state => state);
+
   const classes = useStyles();
-  const [page, setPage] = React.useState(1);
+  const [page, setPage] = useState(1);
+
   const getData = () => {
     dispatch(getAllOffersAction({ limit: 10, offset: (page - 1) * 10 }));
   };
 
   useEffect(() => {
     getData();
-    return ()=>{
-      getData();
-    }
   }, [page]);
 
   const handleChange = (event, value) => {
     setPage(value);
   };
 
-  const arr = [];
   const allOffers = () => {
     if (offers) {
-      offers.map((value, i) => {
-        if (value.status === CONSTANTS.OFFER_STATUS_MODERATION) {
-          return arr.push(
-            <ModerationOfferBox callback={getData} key={i} offerData={value} />
-          );
-        }
-        return;
+      return offers.map((value, i) => {
+        return (
+          <ModerationOfferBox update={getData} key={i} offerData={value} />
+        );
       });
     }
-    return arr;
   };
 
   return (
