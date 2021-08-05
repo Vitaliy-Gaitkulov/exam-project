@@ -3,7 +3,6 @@ const jwt = require('jsonwebtoken');
 const uuid = require('uuid/v1');
 const CONSTANTS = require('../../constants');
 const db = require('../models/index');
-const NotUniqueEmail = require('../errors/NotUniqueEmail');
 const controller = require('../../socketInit');
 const userQueries = require('./queries/userQueries');
 const bankQueries = require('./queries/bankQueries');

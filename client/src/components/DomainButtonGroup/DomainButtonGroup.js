@@ -6,8 +6,7 @@ import cx from 'classnames'
 const DomainButtonGroup = props => {
   const { btnGroupActive, setButtonGroup } = props;
   
-  const stylesButton = cx({
-    [styles.row]: true,
+  const stylesButton = cx(styles.row, {
     [styles.active_asname]: btnGroupActive === 'asname',
     [styles.active_yes]: btnGroupActive === 'yes',
     [styles.active_no]: btnGroupActive === 'no',

@@ -10,18 +10,26 @@ import ProgressBar from '../../components/ProgressBar/ProgressBar';
 import Footer from '../../components/Footer/Footer';
 import Header from '../../components/Header/Header';
 
+let bundleCount = 0
+
 const ContestCreationPage = props => {
   const history = useHistory();
   const dispatch = useDispatch();
   const { contestStore, bundleStore } = useSelector(state => state);
-
+  
   const submitDataContest = values => {
     dispatch(saveContestToStore({ type: props.contestType, info: values }));
-    history.push(
-      bundleStore.bundle[props.contestType] === 'payment'
-        ? '/payment'
-        : bundleStore.bundle[props.contestType] + 'Contest'
-    );
+    if (Object.keys(bundleStore.bundle).length === 2) {
+      history.push('/payment');
+    }else{
+      let bundleLength = Object.keys(bundleStore.bundle)
+      bundleCount++
+      if(bundleStore.bundle[bundleLength[bundleCount]] === 'payment'){
+        history.push('/payment');
+      }else{
+        history.push(bundleStore.bundle[bundleLength[bundleCount]] + 'Contest');
+      }
+    }
   };
 
   !bundleStore.bundle && history.replace('/startContest');

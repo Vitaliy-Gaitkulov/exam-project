@@ -23,12 +23,12 @@ const StartContestPage = props => {
   const setBundle = bundleStr => {
     const array = bundleStr.toLowerCase().split('+');
     const bundleList = {};
-    bundleList.first = array[0];
     for (let i = 0; i < array.length; i++) {
-      bundleList[array[i]] = i === array.length - 1 ? 'payment' : array[i + 1];
+      bundleList[array[i]] = array[i];
     }
+    bundleList.payment = 'payment'
     dispatch(selectBundle(bundleList));
-    props.history.push(`/startContest/${bundleList.first}Contest`);
+    props.history.push(`/startContest/${bundleList[array[0]]}Contest`);
   };
 
   return (
